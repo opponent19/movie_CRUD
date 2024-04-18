@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import json
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -84,19 +84,16 @@ WSGI_APPLICATION = 'crudProj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': '',
-        'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            'host': 'mongodb+srv://yadavitmahendra:*passwordplzzz*@cluster0.khzdb5b.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
-            'port': 27017,
-            'username': "yadavitmahendra",
-            'password': "passwordplzzz",
-            'authSource': 'admin',
-            'authMechanism': 'SCRAM_SHA_1',
-        }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'Opponent@111',
+        'HOST': '127.0.0.1',
+        'PORT': 5432
     }
 }
+
+
 
 
 
@@ -142,3 +139,32 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# import json
+# from pathlib import Path
+
+# # Build paths inside the project like this: BASE_DIR / 'subdir'.
+# BASE_DIR = Path(__file__).resolve().parent.parent
+
+# # Load settings from JSON file
+# with open(BASE_DIR / 'settings.json', 'r') as f:
+#     settings = json.load(f)
+
+# # Use the settings in your Django application
+# SECRET_KEY = settings['SECRET_KEY']
+# DEBUG = settings['DEBUG']
+# ALLOWED_HOSTS = settings['ALLOWED_HOSTS']
+# INSTALLED_APPS = settings['INSTALLED_APPS']
+# MIDDLEWARE = settings['MIDDLEWARE']
+# ROOT_URLCONF = settings['ROOT_URLCONF']
+# TEMPLATES = settings['TEMPLATES']
+# WSGI_APPLICATION = settings['WSGI_APPLICATION']
+# DATABASES = settings['DATABASES']
+# AUTH_PASSWORD_VALIDATORS = settings['AUTH_PASSWORD_VALIDATORS']
+# LANGUAGE_CODE = settings['LANGUAGE_CODE']
+# TIME_ZONE = settings['TIME_ZONE']
+# USE_I18N = settings['USE_I18N']
+# USE_TZ = settings['USE_TZ']
+# STATIC_URL = settings['STATIC_URL']
+# DEFAULT_AUTO_FIELD = settings['DEFAULT_AUTO_FIELD']
