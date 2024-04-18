@@ -51,3 +51,43 @@ The following postman operation:
 - `PUT http://127.0.0.1:8000/movies/{id}/`: Update an existing entry
 - `DELETE http://127.0.0.1:8000/movies/{id}/`: Delete an existing entry
 
+
+
+##logging 
+
+upload this code to settings.py file do not do in settings.json file
+  
+import logging
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'INFO',
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'api': {       #my app name should be here
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+}
+
+##Add in views.py
+
+import logging
+
+logger = logging.getLogger(__name__)
+
