@@ -38,6 +38,7 @@
       }
     ],
     "WSGI_APPLICATION": "crudProj.wsgi.application",
+    
     "DATABASES": {
       "default": {
         "ENGINE": "django.db.backends.postgresql",

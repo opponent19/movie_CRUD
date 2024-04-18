@@ -141,30 +141,32 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# import json
-# from pathlib import Path
+########
 
-# # Build paths inside the project like this: BASE_DIR / 'subdir'.
-# BASE_DIR = Path(__file__).resolve().parent.parent
+import logging
 
-# # Load settings from JSON file
-# with open(BASE_DIR / 'settings.json', 'r') as f:
-#     settings = json.load(f)
-
-# # Use the settings in your Django application
-# SECRET_KEY = settings['SECRET_KEY']
-# DEBUG = settings['DEBUG']
-# ALLOWED_HOSTS = settings['ALLOWED_HOSTS']
-# INSTALLED_APPS = settings['INSTALLED_APPS']
-# MIDDLEWARE = settings['MIDDLEWARE']
-# ROOT_URLCONF = settings['ROOT_URLCONF']
-# TEMPLATES = settings['TEMPLATES']
-# WSGI_APPLICATION = settings['WSGI_APPLICATION']
-# DATABASES = settings['DATABASES']
-# AUTH_PASSWORD_VALIDATORS = settings['AUTH_PASSWORD_VALIDATORS']
-# LANGUAGE_CODE = settings['LANGUAGE_CODE']
-# TIME_ZONE = settings['TIME_ZONE']
-# USE_I18N = settings['USE_I18N']
-# USE_TZ = settings['USE_TZ']
-# STATIC_URL = settings['STATIC_URL']
-# DEFAULT_AUTO_FIELD = settings['DEFAULT_AUTO_FIELD']
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'INFO',
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'api': {       #my app name should be here
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+}
